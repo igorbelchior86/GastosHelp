@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Gastos+ is an Apple-native personal finance app for projected balance, budgets, recurring transactions, cards, shared accounts, and calm month insights." />
+    <meta property="og:title" content="Gastos+ — Personal finance with clarity" />
+    <meta property="og:description" content="Track budgets, recurring bills, planned spending, cards, shared accounts, and Panorama insights in one calm app." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/screenshots/app-light-real.jpg" />
+    <meta name="theme-color" content="#fbfbfd" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Gastos+ — Personal finance with clarity</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="%23ffffff"/><path d="M18 32h28M32 18v28" stroke="%232fc878" stroke-width="7" stroke-linecap="round"/></svg>' />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content" data-i18n="a11y.skip"></a>
+
+    <header class="site-header">
+      <a class="brand" href="#hero" aria-label="Gastos+"><span>Gastos</span><strong>+</strong></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#features" data-i18n="nav.features"></a>
+        <a href="#real-life" data-i18n="nav.realLife"></a>
+        <a href="#support" data-i18n="nav.support"></a>
+      </nav>
+      <div class="tools">
+        <div class="select-like" role="group" aria-label="Language">
+          <button type="button" data-locale="en">EN</button>
+          <button type="button" data-locale="pt-BR">PT</button>
+        </div>
+        <button class="theme-button" type="button" data-theme-toggle>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2.5M12 18.5V21M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M3 12h2.5M18.5 12H21M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/><circle cx="12" cy="12" r="4"/></svg>
+          <span data-theme-label></span>
+        </button>
+        <a class="store-button" href="https://apps.apple.com/app/id6755895322" target="_blank" rel="noreferrer" data-i18n="nav.store"></a>
+      </div>
+    </header>
+
+    <main id="content">
+      <section id="hero" class="hero">
+        <div class="hero-copy">
+          <h1><span>Gastos</span><strong>+</strong></h1>
+          <p class="hero-title"><span data-i18n="hero.titleTop"></span><strong data-i18n="hero.titleAccent"></strong></p>
+          <p class="hero-subtitle" data-i18n="hero.subtitle"></p>
+          <div class="actions">
+            <a class="app-cta" href="https://apps.apple.com/app/id6755895322" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.1 12.6c0-2.2 1.8-3.2 1.9-3.3-1.1-1.5-2.7-1.7-3.2-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 6.9 1.1 9.1.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7c1.2 0 2-.9 2.8-2 .9-1.2 1.2-2.4 1.2-2.5-.1-.1-2.6-1-2.6-4.1ZM14.8 6.1c.6-.8 1.1-1.8 1-2.9-1 .1-2.1.6-2.8 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.8-1.3Z"/></svg>
+              <span data-i18n="hero.primaryCta"></span>
+            </a>
+            <a class="button secondary" href="#features" data-i18n="hero.secondaryCta"></a>
+          </div>
+          <p class="hero-meta" data-i18n="hero.meta"></p>
+        </div>
+
+        <div class="hero-phones" aria-label="Real Gastos+ app screenshots">
+          <figure class="phone phone-light"><img src="./assets/screenshots/app-light-real.jpg" alt="Gastos+ app home screen in light mode with yearly balance and monthly projections." /></figure>
+          <figure class="phone phone-dark"><img src="./assets/screenshots/app-dark-real.jpg" alt="Gastos+ app home screen in dark mode with yearly balance and monthly projections." /></figure>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Privacy highlights">
+        <p data-i18n="trust.title"></p>
+        <div>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5.5c0 4.6 2.9 8.3 7 9.5 4.1-1.2 7-4.9 7-9.5V6l-7-3Z"/></svg><em data-i18n="trust.noTracking"></em></span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z"/><path d="m9 9 6 6M15 9l-6 6"/></svg><em data-i18n="trust.noAds"></em></span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M10 17h4"/></svg><em data-i18n="trust.native"></em></span>
+        </div>
+      </section>
+
+      <section id="features" class="features section">
+        <div class="center-heading">
+          <h2 data-i18n="features.title"></h2>
+          <p data-i18n="features.subtitle"></p>
+        </div>
+        <div class="feature-cards">
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18c4-6 7 1 16-10"/><path d="M18 8h2v2"/></svg>
+            <h3 data-i18n="features.projected.title"></h3>
+            <p data-i18n="features.projected.body"></p>
+            <div class="mini-chart"><span>May 2026</span><strong>2.253,34 €</strong><svg viewBox="0 0 180 70"><path d="M4 52 C34 38, 45 36, 65 48 S105 58, 128 38 S158 18, 176 8"/></svg></div>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M4 10h16"/></svg>
+            <h3 data-i18n="features.budgets.title"></h3>
+            <p data-i18n="features.budgets.body"></p>
+            <div class="donut"><span>72%</span></div><small data-i18n="features.budgets.caption"></small>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10l-2-2M17 17H7l2 2"/><path d="M17 5v4h-4M7 19v-4h4"/></svg>
+            <h3 data-i18n="features.recurring.title"></h3>
+            <p data-i18n="features.recurring.body"></p>
+            <div class="rows"><span>Internet <b>120,00 €</b></span><span>Gym <b>99,00 €</b></span><span>Streaming <b>29,90 €</b></span></div>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v14H5z"/><path d="M8 3v4M16 3v4M5 10h14"/></svg>
+            <h3 data-i18n="features.planned.title"></h3>
+            <p data-i18n="features.planned.body"></p>
+            <div class="rows"><span>Vacation <b>2.500,00 €</b></span><span>New laptop <b>4.200,00 €</b></span></div>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
+            <h3 data-i18n="features.cards.title"></h3>
+            <p data-i18n="features.cards.body"></p>
+            <div class="rows"><span>Visa ••• 4242 <b>Due Apr 28</b></span><span>Invoice #1023 <b>660,00 €</b></span></div>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9M10 19V5M15 19v-7M20 19V8"/></svg>
+            <h3 data-i18n="features.panorama.title"></h3>
+            <p data-i18n="features.panorama.body"></p>
+            <div class="bars"><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="real-life" class="real-life section">
+        <div class="center-heading">
+          <h2 data-i18n="realLife.title"></h2>
+          <p data-i18n="realLife.subtitle"></p>
+        </div>
+        <div class="life-grid">
+          <article><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M3 21a7 7 0 0 1 14 0"/><path d="M18 8v6M15 11h6"/></svg><h3 data-i18n="realLife.shared.title"></h3><p data-i18n="realLife.shared.body"></p></article>
+          <article><svg viewBox="0 0 24 24"><path d="M6 17.5A4.5 4.5 0 0 1 7.2 8.7 6 6 0 0 1 19 10.5 3.5 3.5 0 0 1 18 17.5Z"/></svg><h3 data-i18n="realLife.sync.title"></h3><p data-i18n="realLife.sync.body"></p></article>
+          <article><svg viewBox="0 0 24 24"><path d="M6 17.5A4.5 4.5 0 0 1 7.2 8.7 6 6 0 0 1 19 10.5 3.5 3.5 0 0 1 18 17.5Z"/><path d="M12 9v7M8.5 12.5h7"/></svg><h3 data-i18n="realLife.offline.title"></h3><p data-i18n="realLife.offline.body"></p></article>
+          <article><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 5v14M5 9h14"/></svg><h3 data-i18n="realLife.widgets.title"></h3><p data-i18n="realLife.widgets.body"></p></article>
+          <article><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.6 2.9 8.3 7 9.5 4.1-1.2 7-4.9 7-9.5V6l-7-3Z"/><path d="M12 9v4"/></svg><h3 data-i18n="realLife.security.title"></h3><p data-i18n="realLife.security.body"></p></article>
+          <article><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8.5 13.5c1.7 2 5.3 2 7 0"/><path d="M9 10h.01M15 10h.01"/></svg><h3 data-i18n="realLife.simple.title"></h3><p data-i18n="realLife.simple.body"></p></article>
+        </div>
+      </section>
+
+      <section id="support" class="support section">
+        <aside class="support-aside">
+          <h2 data-i18n="support.title"></h2>
+          <p data-i18n="support.subtitle"></p>
+          <ul>
+            <li data-i18n="support.points.bugs"></li>
+            <li data-i18n="support.points.features"></li>
+            <li data-i18n="support.points.questions"></li>
+          </ul>
+          <a class="github-link" href="https://github.com/igorbelchior86/GastosHelp/issues/new?template=support.yml" target="_blank" rel="noreferrer">GitHub</a>
+        </aside>
+        <form id="support-form" class="support-form">
+          <label><span data-i18n="form.subjectLabel"></span><input name="subject" required data-i18n-placeholder="form.subjectPlaceholder" /></label>
+          <label><span data-i18n="form.categoryLabel"></span><select name="category" required><option value="" data-i18n="form.categoryPlaceholder"></option><option value="bug" data-i18n="form.categories.bug"></option><option value="budget" data-i18n="form.categories.budget"></option><option value="planned" data-i18n="form.categories.planned"></option><option value="cards" data-i18n="form.categories.cards"></option><option value="shared" data-i18n="form.categories.shared"></option><option value="sync" data-i18n="form.categories.sync"></option><option value="other" data-i18n="form.categories.other"></option></select></label>
+          <label class="wide"><span data-i18n="form.detailsLabel"></span><textarea name="details" rows="5" required data-i18n-placeholder="form.detailsPlaceholder"></textarea></label>
+          <label class="wide"><span data-i18n="form.stepsLabel"></span><textarea name="steps" rows="5" data-i18n-placeholder="form.stepsPlaceholder"></textarea></label>
+          <label><span data-i18n="form.emailLabel"></span><input name="email" type="email" required data-i18n-placeholder="form.emailPlaceholder" /></label>
+          <label><span data-i18n="form.versionLabel"></span><input name="version" data-i18n-placeholder="form.versionPlaceholder" /></label>
+          <button class="button primary wide" type="submit" data-i18n="form.submitCta"></button>
+        </form>
+      </section>
+
+      <section id="faq" class="faq section">
+        <h2 data-i18n="faq.title"></h2>
+        <div>
+          <details open><summary data-i18n="faq.items.github.q"></summary><p data-i18n="faq.items.github.a"></p></details>
+          <details><summary data-i18n="faq.items.githubAccount.q"></summary><p data-i18n="faq.items.githubAccount.a"></p></details>
+          <details><summary data-i18n="faq.items.languages.q"></summary><p data-i18n="faq.items.languages.a"></p></details>
+          <details><summary data-i18n="faq.items.free.q"></summary><p data-i18n="faq.items.free.a"></p></details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div><a class="brand" href="#hero"><span>Gastos</span><strong>+</strong></a><p data-i18n="footer.copy"></p></div>
+      <nav>
+        <a href="https://github.com/igorbelchior86/GastosHelp" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="./#support" data-i18n="footer.support"></a>
+        <a href="./security.html" data-i18n="footer.security"></a>
+        <a href="./privacy.html" data-i18n="footer.privacy"></a>
+      </nav>
+    </footer>
+  </body>
+</html>
