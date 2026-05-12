@@ -1,4 +1,4 @@
-const repoUrl = "https://github.com/igorbelchior86/GastosHelp";
+const supportEndpoint = "https://script.google.com/macros/s/AKfycbw83_hz1qnhsrf4NAjPcrZi7pDm4FNsB5DOWWpjDDE48OCVYtyP4ErD8rvlM7FgqCm9/exec";
 
 const copy = {
   en: {
@@ -16,7 +16,7 @@ const copy = {
       subtitle: "Budgets, recurring bills, shared accounts, planned spending, cards, and smart insights — all in one calm place.",
       primaryCta: "Download on App Store",
       secondaryCta: "See how it works",
-      meta: "Built for iPhone and iPad · Apple-native feel · GitHub-hosted support",
+      meta: "Built for iPhone and iPad · Apple-native feel · private support intake",
     },
     trust: {
       title: "Built with privacy in mind. Your data stays with you.",
@@ -46,7 +46,7 @@ const copy = {
     },
     support: {
       title: "We’re here to help",
-      subtitle: "Found a bug or have a feature request? Open an issue in our GitHub repository.",
+      subtitle: "Found a bug or have a feature request? Send a private support request without a GitHub account.",
       points: {
         bugs: "Bug reports",
         features: "Feature requests",
@@ -75,7 +75,10 @@ const copy = {
       detailsPlaceholder: "Describe the issue or idea in detail...",
       stepsLabel: "Steps to reproduce",
       stepsPlaceholder: "1. Go to...\n2. Tap on...\n3. See error...",
-      submitCta: "Open issue on GitHub",
+      submitCta: "Send support request",
+      sending: "Sending...",
+      success: "Request sent. We will use your contact email if we need more details.",
+      error: "We could not send the request. Please try again in a moment.",
     },
     faq: {
       title: "Frequently asked questions",
@@ -108,7 +111,7 @@ const copy = {
       subtitle: "Orçamentos, contas recorrentes, contas compartilhadas, gastos planejados, cartões e insights inteligentes — tudo em um lugar calmo.",
       primaryCta: "Baixar na App Store",
       secondaryCta: "Ver como funciona",
-      meta: "Feito para iPhone e iPad · visual nativo Apple · suporte hospedado no GitHub",
+      meta: "Feito para iPhone e iPad · visual nativo Apple · suporte privado",
     },
     trust: {
       title: "Feito com privacidade em mente. Seus dados ficam com você.",
@@ -138,7 +141,7 @@ const copy = {
     },
     support: {
       title: "Estamos aqui para ajudar",
-      subtitle: "Encontrou um bug ou tem um pedido de recurso? Abra uma issue no nosso repositório GitHub.",
+      subtitle: "Encontrou um bug ou tem um pedido de recurso? Envie um pedido privado sem precisar de conta GitHub.",
       points: {
         bugs: "Relatos de bug",
         features: "Pedidos de recurso",
@@ -167,7 +170,10 @@ const copy = {
       detailsPlaceholder: "Descreva o problema ou ideia em detalhes...",
       stepsLabel: "Passos para reproduzir",
       stepsPlaceholder: "1. Vá para...\n2. Toque em...\n3. Veja o erro...",
-      submitCta: "Abrir issue no GitHub",
+      submitCta: "Enviar pedido de suporte",
+      sending: "Enviando...",
+      success: "Pedido enviado. Usaremos seu e-mail de contato se precisarmos de mais detalhes.",
+      error: "Não conseguimos enviar o pedido. Tente novamente em instantes.",
     },
     faq: {
       title: "Perguntas frequentes",
@@ -193,16 +199,7 @@ const elements = {
   themeLabel: document.querySelector("[data-theme-label]"),
   localeButtons: [...document.querySelectorAll("[data-locale]")],
   form: document.querySelector("#support-form"),
-};
-
-const categoryLabels = {
-  bug: "Bug report",
-  budget: "Budgets",
-  planned: "Planned spending",
-  cards: "Cards & invoices",
-  shared: "Shared accounts",
-  sync: "Sync / offline",
-  other: "Other",
+  formStatus: document.querySelector("[data-form-status]"),
 };
 
 const state = {
@@ -269,36 +266,52 @@ function getPath(source, path) {
   return path.split(".").reduce((value, key) => value?.[key], source);
 }
 
-function submitSupport(event) {
+async function submitSupport(event) {
   event.preventDefault();
   const form = event.currentTarget;
   const subject = form.subject.value.trim();
   const email = form.email.value.trim();
   const category = form.category.value;
-  const version = form.version.value.trim();
   const details = form.details.value.trim();
-  const steps = form.steps.value.trim();
   if (!subject || !email || !category || !details) return;
+  if (form.website?.value) return;
 
-  const url = new URL(`${repoUrl}/issues/new`);
-  url.searchParams.set("template", "support.yml");
-  url.searchParams.set("title", subject);
-  url.searchParams.set("subject", subject);
-  url.searchParams.set("email", email);
-  url.searchParams.set("category", categoryLabels[category] || categoryLabels.other);
-  if (version) url.searchParams.set("version", version);
-  url.searchParams.set("details", [
-    details,
-    steps ? `\nSteps to reproduce:\n${steps}` : "",
-    "",
-    `Contact email: ${email}`,
-    version ? `Environment: ${version}` : "",
-    `Locale: ${state.locale}`,
-    `Theme: ${state.theme}`,
-    `Page: ${location.href}`,
-    `User agent: ${navigator.userAgent}`,
-  ].filter(Boolean).join("\n"));
+  const strings = copy[state.locale].form;
+  const button = form.querySelector("button[type='submit']");
+  const data = new FormData(form);
+  data.set("subject", subject);
+  data.set("email", email);
+  data.set("category", category);
+  data.set("details", details);
+  data.set("version", form.version.value.trim());
+  data.set("steps", form.steps.value.trim());
+  data.set("locale", state.locale);
+  data.set("theme", state.theme);
+  data.set("page", location.href);
+  data.set("userAgent", navigator.userAgent);
 
-  const opened = window.open(url.toString(), "_blank", "noopener,noreferrer");
-  if (!opened) location.href = url.toString();
+  setFormStatus(strings.sending);
+  if (button) {
+    button.disabled = true;
+    button.textContent = strings.sending;
+  }
+
+  try {
+    await fetch(supportEndpoint, { method: "POST", mode: "no-cors", body: data });
+    form.reset();
+    setFormStatus(strings.success);
+  } catch {
+    setFormStatus(strings.error, true);
+  } finally {
+    if (button) {
+      button.disabled = false;
+      button.textContent = copy[state.locale].form.submitCta;
+    }
+  }
+}
+
+function setFormStatus(message, isError = false) {
+  if (!elements.formStatus) return;
+  elements.formStatus.textContent = message;
+  elements.formStatus.classList.toggle("is-error", isError);
 }

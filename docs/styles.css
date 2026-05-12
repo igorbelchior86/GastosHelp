@@ -105,7 +105,7 @@ img, svg { display: block; max-width: 100%; }
   font-size: 14px;
   font-weight: 640;
 }
-.nav a, .footer a, .github-link, .button, .app-cta, .tools button {
+.nav a, .footer a, .button, .app-cta, .tools button {
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
 }
 .nav a:hover, .footer a:hover { color: var(--text); }
@@ -232,8 +232,8 @@ img, svg { display: block; max-width: 100%; }
   font-size: 15px;
   font-weight: 760;
 }
-.button:hover, .app-cta:hover, .store-button:hover, .github-link:hover { transform: translateY(-1px); }
-.button:active, .app-cta:active, .store-button:active, .github-link:active { transform: translateY(1px) scale(0.99); }
+.button:hover, .app-cta:hover, .store-button:hover { transform: translateY(-1px); }
+.button:active, .app-cta:active, .store-button:active { transform: translateY(1px) scale(0.99); }
 .app-cta {
   gap: 9px;
   padding: 0 21px;
@@ -519,7 +519,7 @@ h2 {
 .support-aside ul {
   display: grid;
   gap: 14px;
-  margin: 0 0 28px;
+  margin: 0;
   padding: 0;
   list-style: none;
   color: var(--muted);
@@ -539,17 +539,6 @@ h2 {
   border-radius: 50%;
   background: var(--accent);
   box-shadow: inset 0 0 0 5px color-mix(in srgb, var(--card) 80%, transparent);
-}
-.github-link {
-  display: inline-flex;
-  min-height: 42px;
-  align-items: center;
-  padding: 0 16px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--card);
-  font-size: 14px;
-  font-weight: 760;
 }
 .support-form {
   display: grid;
@@ -592,6 +581,26 @@ input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible
   margin-top: 2px;
   border: 0;
   cursor: pointer;
+}
+.support-form .primary:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+.form-status {
+  min-height: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.form-status.is-error {
+  color: #d24040;
+}
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .faq {

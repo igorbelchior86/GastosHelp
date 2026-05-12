@@ -138,9 +138,9 @@
             <li data-i18n="support.points.features"></li>
             <li data-i18n="support.points.questions"></li>
           </ul>
-          <a class="github-link" href="https://github.com/igorbelchior86/GastosHelp/issues/new?template=support.yml" target="_blank" rel="noreferrer">GitHub</a>
         </aside>
         <form id="support-form" class="support-form">
+          <label class="hp" aria-hidden="true"><span>Website</span><input name="website" tabindex="-1" autocomplete="off" /></label>
           <label><span data-i18n="form.subjectLabel"></span><input name="subject" required data-i18n-placeholder="form.subjectPlaceholder" /></label>
           <label><span data-i18n="form.categoryLabel"></span><select name="category" required><option value="" data-i18n="form.categoryPlaceholder"></option><option value="bug" data-i18n="form.categories.bug"></option><option value="budget" data-i18n="form.categories.budget"></option><option value="planned" data-i18n="form.categories.planned"></option><option value="cards" data-i18n="form.categories.cards"></option><option value="shared" data-i18n="form.categories.shared"></option><option value="sync" data-i18n="form.categories.sync"></option><option value="other" data-i18n="form.categories.other"></option></select></label>
           <label class="wide"><span data-i18n="form.detailsLabel"></span><textarea name="details" rows="5" required data-i18n-placeholder="form.detailsPlaceholder"></textarea></label>
@@ -148,6 +148,7 @@
           <label><span data-i18n="form.emailLabel"></span><input name="email" type="email" required data-i18n-placeholder="form.emailPlaceholder" /></label>
           <label><span data-i18n="form.versionLabel"></span><input name="version" data-i18n-placeholder="form.versionPlaceholder" /></label>
           <button class="button primary wide" type="submit" data-i18n="form.submitCta"></button>
+          <p class="form-status wide" role="status" aria-live="polite" data-form-status></p>
         </form>
       </section>
 
